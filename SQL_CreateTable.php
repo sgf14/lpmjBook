@@ -5,15 +5,13 @@ require_once 'dbLogin.php';
  $con = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     if ($con->connect_error) die("Database selection failed: " . $con->connect_error);
   
-  $tableName = "cats";
+  $tableName = "customers";
 
   $query = "CREATE TABLE " . $tableName . " (
-    id SMALLINT NOT NULL AUTO_INCREMENT,
-    family VARCHAR(32) NOT NULL,
-    name VARCHAR(32) NOT NULL,
-    age TINYINT NOT NULL,
-    PRIMARY KEY (id)
-  )";
+    isbn INT(11) NOT NULL,
+    name VARCHAR(128) NOT NULL,
+    PRIMARY KEY (isbn)
+  )ENGINE MyISAM";
 
   $result = $con->query($query);
     if (!result) die ("Database access failed: " . $con->error);

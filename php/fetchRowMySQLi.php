@@ -1,7 +1,8 @@
 <?php
     // select statment using for loop see pg 272 of book.  see W3C wesite- PHP/mySQLi section for
     //other methods, or while file to left
- require_once 'dbLogin.php';
+    //on the require once the ..\ portion goes up one folder level \[folderName]\file.php goes down a folder level 
+ require_once '..\dbLogin.php';
  $con = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     if ($con->connect_error)
     {

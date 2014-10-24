@@ -25,6 +25,9 @@ if (isset($_POST['family']) &&
 }
 
 //display and user interaction
+// mysqli_insert_id  is an important function, particularly when linking tables- see pg 261
+//book reccomends locking tables- see chap 9, pg 235, and transactions (COMMIT/ROLLBACK) on pg 230
+echo "The insert ID is: " . mysqli_insert_id($con);
 echo <<<_END
     <form action = "SQL_Insert.php" method="post"><pre>
      Family <input type="text" name="family">
@@ -36,7 +39,7 @@ _END;
 
   $query = "SELECT * FROM " . $tableName . "";
   $result = $con->query($query);
-    if (!result) die ("Database access failed: " . $con->error);
+    if (!$result) die ("Database access failed: " . $con->error);
 
   $rows = $result->num_rows;
 // echo 'connected ' . DB_NAME . ' ' . $rows . '<br>';
