@@ -1,6 +1,6 @@
 <?php
     //pg 258,  adapted INSERT statements into form
- require_once 'dbLogin.php';
+ require_once '../dbLogin.php';
  $con = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     if ($con->connect_error) die("Database selection failed: " . $con->connect_error);
 

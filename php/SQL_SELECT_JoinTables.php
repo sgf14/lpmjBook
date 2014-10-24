@@ -2,7 +2,7 @@
     //use: Join table records via PHP.  pg 263
     // note the use of sub queries to join two tables, not b]via sql but by two separate queries
     //in php code.  see natural join file as an alternative
-require_once 'dbLogin.php';
+require_once '../dbLogin.php';
  $con = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     if ($con->connect_error) die("Database selection failed: " . $con->connect_error);
 

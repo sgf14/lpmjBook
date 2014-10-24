@@ -4,7 +4,7 @@
     // the results array[column number] is used to drive the display, the natual join ensures the join is 
     //based on the isbn column, becuase that is the common column name between the tables
     // oyu can test this by chaning the [] values to see how the display changes
-require_once 'dbLogin.php';
+require_once '..\dbLogin.php';
  $con = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     if ($con->connect_error) die("Database selection failed: " . $con->connect_error);
 
