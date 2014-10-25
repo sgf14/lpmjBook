@@ -3,7 +3,11 @@
 //DB SELECT stmt from W3C schools- PHP Select example.  results are similar to 'fetchRowMySQLi.php' file
 // uses while stmt instead of for loop
 
-require_once '../dbLogin.php';
+// get login data
+require_once '..\fileFunctions.php';
+require_once $directory . '\dbLogin.php';
+
+//connect to DB
  $con = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     if ($con->connect_error)
     {
