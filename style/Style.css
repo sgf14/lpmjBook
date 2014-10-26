@@ -1,0 +1,118 @@
+body {
+	background: #f9e933;
+	font-family: 'Droid+Sans+Mono', sans-serif;
+	font-size: 80%;
+}
+
+header, main, footer {
+	min-width: 855px;
+}
+
+header .container, main .container, footer .container {
+	max-width: 855px;
+	margin: auto;
+}
+
+header {
+	background: lightgray;
+	overflow: auto;
+	padding: 30px;
+}
+
+header .title {
+/* 	book had h1 instead of div tags; css lint said a header should not be qualified in this way- see pg 91 */
+	float: left;
+	width: 570px;
+	color: crimson;
+}
+
+header nav {
+	float: right;
+	width: 285px;
+ }
+
+header nav a {
+	text-decoration: none; /*removes the default underline on a link */
+	color: limegreen;  /* links are blue by default */
+}
+
+header nav a:hover {
+	text-decoration: underline; /*removes the default underline on a link, except when mouse is over link */
+}
+
+h1 {
+	font-family: 'Ubuntu', sans-serif;
+	font-style: italic;
+	font-size: 250%;
+}
+
+h2 {
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 150%;
+	line-height: 100%;
+	padding-bottom: 10px;
+}
+
+h3 {
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 120%;
+	padding: 15px;
+}
+
+h5 {
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 120%;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	padding-left: 0px;
+	padding-right: 0px;
+	color: red;
+}
+
+main {
+	background: white;
+	overflow: auto;
+}
+
+main .left {
+	float: left;
+	width: 570px;
+}
+
+main .right {
+	float: right;
+	width: 285px;
+}
+
+p.company {
+	color: darkgreen;
+	font-style: italic;
+}
+
+footer {
+/* 	overflow: auto; */
+}
+
+footer .contact {
+	float: left;
+	width: 570px;
+}
+
+/* had some trouble with left/right sitemap breakout, but works now.  note how there are two levels of floats, wiht site map right and left 
+floating within the main sitemap float- just right and left.  do not use overflow it just adds scroll bar in the sitemap section.
+ */
+footer .sitemap {
+	float: right;
+	width: 285px;
+	/* 	overflow: auto; */
+}
+
+footer .sitemap .sitemapLeft {
+	float: left;
+/* 	width: 285px; */
+}
+
+footer .sitemap .sitemapRight {
+	float: right;
+/* 	width: 145px; */
+}
