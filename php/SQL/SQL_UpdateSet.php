@@ -1,7 +1,15 @@
 <?php
-    //use: UPDATE a record within a table via PHP.  pg 259
+    //use: UPDATE existing record within a table via PHP.  Chap 10, pg 259
     // 
-require_once '../dbLogin.php';
+
+// old version- if dblogin was one folder up
+// require_once '../dbLogin.php';
+
+//get login data
+ require_once '..\fileFunctions.php';
+ require_once $directory . '\dbLogin.php';
+
+ // connect to db
  $con = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     if ($con->connect_error) die("Database selection failed: " . $con->connect_error);
 

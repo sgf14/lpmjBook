@@ -1,6 +1,14 @@
 <?php
-    //pg 258,  adapted INSERT statements into form
- require_once '../dbLogin.php';
+    //add records to existing table.  Adapted INSERT statements into form; chap 10, pg 258
+
+ // old version- if dblogin was one folder up
+// require_once '../dbLogin.php';
+
+//get login data
+ require_once '..\fileFunctions.php';
+ require_once $directory . '\dbLogin.php';
+
+ // connect to db
  $con = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     if ($con->connect_error) die("Database selection failed: " . $con->connect_error);
 

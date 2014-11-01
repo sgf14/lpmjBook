@@ -1,8 +1,16 @@
 <?php
-    //use: Join table records via PHP.  pg 263
+    //use: Join table records via PHP.  Chap 10, pg 263
     // note the use of sub queries to join two tables, not b]via sql but by two separate queries
     //in php code.  see natural join file as an alternative
-require_once '../dbLogin.php';
+
+// old version- if dblogin was one folder up
+// require_once '../dbLogin.php';
+
+//get login data
+ require_once '..\fileFunctions.php';
+ require_once $directory . '\dbLogin.php';
+
+ // connect to db
  $con = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     if ($con->connect_error) die("Database selection failed: " . $con->connect_error);
 

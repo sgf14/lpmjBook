@@ -1,11 +1,17 @@
 <?php
-    //use: Create a table via PHP.  pg 256
-    // 
-require_once '../dbLogin.php';
+    //use: Create a table via PHP.  Chap 10; pg 256
+
+// old version- if dblogin was one folder up
+// require_once '../dbLogin.php';
+
+//get login data
+ require_once '..\fileFunctions.php';
+ require_once $directory . '\dbLogin.php';
+
  $con = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     if ($con->connect_error) die("Database selection failed: " . $con->connect_error);
   
-  $tableName = "customers";
+  $tableName = "customers2";
 
   $query = "CREATE TABLE " . $tableName . " (
     isbn INT(11) NOT NULL,

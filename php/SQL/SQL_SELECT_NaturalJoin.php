@@ -1,10 +1,18 @@
 <?php
-    //use: Join table records via PHP.  pg 263
+    //use: Join table records via PHP.  Chap 10, pg 263
     // this natural join is another version of Join tables  file, it just doesnt have subquery
     // the results array[column number] is used to drive the display, the natual join ensures the join is 
     //based on the isbn column, becuase that is the common column name between the tables
-    // oyu can test this by chaning the [] values to see how the display changes
-require_once '..\dbLogin.php';
+    // you can test this by chaning the [] values to see how the display changes
+
+// old version- if dblogin was one folder up
+// require_once '../dbLogin.php';
+
+//get login data
+ require_once '..\fileFunctions.php';
+ require_once $directory . '\dbLogin.php';
+
+ // connect to db
  $con = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     if ($con->connect_error) die("Database selection failed: " . $con->connect_error);
 

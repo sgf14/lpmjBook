@@ -1,7 +1,15 @@
 <?php
-    //use: Create a table via PHP.  pg 256
+    //use: Show tables via PHP.  derived from Chap 8, pg 178
     // 
-require_once '../dbLogin.php';
+
+// old version- if dblogin was one folder up
+// require_once '../dbLogin.php';
+
+//get login data
+ require_once '..\fileFunctions.php';
+ require_once $directory . '\dbLogin.php';
+
+ // connect to db
  $con = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     if ($con->connect_error) die("Database selection failed: " . $con->connect_error);
 //can use SHOW stmt to display a variety of info including Databases, used if for Tables within the databases here

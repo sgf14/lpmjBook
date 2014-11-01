@@ -1,7 +1,15 @@
 <?php
-    //pg 274,  this extends the select while file, allowing addition and deletion of records
+    //Chap 10, pg 274,  this extends the select while file, allowing addition and deletion of records
     //note that with the display sections (END) the alignment is done in the code
- require_once '../dbLogin.php';
+
+ // old version- if dblogin was one folder up
+// require_once '../dbLogin.php';
+
+//get login data
+ require_once '..\fileFunctions.php';
+ require_once $directory . '\dbLogin.php';
+
+ // connect to db
  $con = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     if ($con->connect_error) die("Database selection failed: " . $con->connect_error);
 
