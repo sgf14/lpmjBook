@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<!-- this displays how js uses the DOM to link to an <a> tag via its id-->
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Link Test</title>
+    </head>
+    <body>
+        <a id="mylink" href="http://mysite.com">Click Me</a><br>
+        <script>
+            url = document.links.mylink.href
+            document.write('The URL is ' + url)
+        </script>
+    </body>
+</html>

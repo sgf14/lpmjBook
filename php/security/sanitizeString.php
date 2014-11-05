@@ -8,7 +8,7 @@ function sanitizeString($var)
     $var = stripslashes($var);
     $var = strip_tags($var);
     //Need to have entities at the end or strip tags doesnt work- need to research more
-    $var = htmlentities($var);
+    $var = htmlspecialchars($var);
     return $var;
 }
 

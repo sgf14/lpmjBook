@@ -13,6 +13,9 @@ if (isset($_SESSION['username']))
     $forename = $_SESSION['forename'];
     $surname = $_SESSION['surname'];
 
+    // if user were to click on the reload page session has been destroyed ad user prompted to reutn to login pg 
+    destroy_session_and_data();
+
     echo "Welcome back $forename, <br>
             Your fullname is $forename $surname. <br>
             your username is '$username' 
@@ -20,6 +23,13 @@ if (isset($_SESSION['username']))
 }
 // if session wasnt established, it will have you send you to login pg
 else echo "Please <a href='authenticateWithSession.php'>click here</a> to log in.";
+
+function destroy_session_and_data()
+{
+    $_SESSION = array();
+    setcookie(session_name(), '', time() - 2592000, '/');
+    session_destroy();
+}
 ?>
 
 
