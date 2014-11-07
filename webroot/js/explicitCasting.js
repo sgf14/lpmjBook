@@ -7,7 +7,7 @@ var nf = parseFloat(n);
 var se = String(n);
 
 var a = 1;
-var ae = Boolean(a);
+var ae = Boolean(8 == 2);
 
 var s = 'this is a test string';
 var splitToArray = s.split(" ");
