@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!-- Chap 17, pg 396.  regular expressions apply in both JS and PHP- wrapped this in Html just to display -->
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+    </head>
+    <body>
+        <!-- note the script tag does not explicitly say Javascript- js is assumed-see js chap (14 ,pg 323-->
+        <script>
+        // regular expression test
+        //i means case insentitive
+       document.write(/cats/i.test("Cats are funny. I like cats.")+"<br>")
+
+       // regualr expression replace.
+       //g means global
+       document.write("Cats are friendly. I like cats".replace(/cats/gi,"dogs"))
+       </script>
+    </body>
+</html>

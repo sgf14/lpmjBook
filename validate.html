@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!-- pg 382, Chap 17 JS validation, php and error handling-->
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>An Example Form</title>
+        <style>
+            .signup {
+                border: 1px solid #999999;
+                font:  normal 14px helvetica;
+                color: #444444;
+            }
+        </style>
+        <script>
+            function validate(form) {
+                //make sure all the form.fields spelling matches both here and in table code below or it fails
+                //and just calls php file when submit button pressed. misspelled email originally and found error
+                fail = validateForename(form.forename.value)
+                fail += validateSurname(form.surname.value)
+                fail += validateUsername(form.username.value)
+                fail += validatePassword(form.password.value)
+                fail += validateAge(form.age.value)
+                fail += validateEmail(form.email.value)
+
+                if (fail == "") return true
+                else { alert(fail); return false }
+            }
+
+            //verify object name spelling, must match equivalent one above
+            function validateForename(field) {
+                return (field == "") ? "No first name entered.\n" : ""
+            }
+
+            function validateSurname(field) {
+                return (field == "") ? "No last name entered.\n" : ""
+            }
+
+            function validateUsername(field) {
+                if (field == "") return "No username entered.\n"
+                else if (field.length < 5)
+                    return "Username must be at least 5 characters.\n"
+                // regular expression- see pg 387
+                else if (/[^a-zA-Z0-9_-]/.test(field))
+                    return "Only a-z, A-Z, 0-9, - and _ are allowed in Username field.\n"
+                return ""
+            }
+
+            function validatePassword(field) {
+                if (field == "") return "No password entered.\n"
+                else if (field.length < 6)
+                    return "Password must be at least 6 characters.\n"
+                else if (!/[a-z]/.test(field) || !/[A-Z]/.test(field) || !/[0-9]/.test(field))
+                    return "Passwords require one each a-z, A-Z & 0-9.\n"
+                return "" 
+            }
+
+            function validateAge(field) {
+                if (isNaN(field)) return "No age was entered.\n"
+                else if (field < 18 || field > 110)
+                    return "Age must be between 18 and 110.\n"
+                return ""
+            }
+
+            function validateEmail(field) {
+                if (field == "") return "No email was entered.\n"
+                else if (!((field.indexOf(".") > 0) && (field.indexOf("@") > 0)) || /[^a-zA-Z0-9.@_-]/.test(field))
+                    return "invalid email address.\n"
+                return ""
+            }
+        </script>
+    </head>
+    <body>
+        <table border="0" cellpadding="2" cellspacing="5" bgcolor="#eeeeee">
+        <th colspan="2" align="center">Signup Form</th>
+            <form method="post" action="addUser.php" onsubmit="return validate(this)">
+            <tr><td>First Name</td>
+                <td><input type="text" maxlength="32" name="forename"></td></tr>
+            <tr><td>Last Name</td>
+                <td><input type="text" maxlength="32" name="surname"></td></tr>
+            <tr><td>User Name</td>
+                <td><input type="text" maxlength="16" name="username"></td></tr>
+            <tr><td>Password</td>
+                <td><input type="text" maxlength="12" name="password"></td></tr>
+            <tr><td>Age</td>
+                <td><input type="text" maxlength="3" name="age"></td></tr>
+            <tr><td>Email</td>
+                <td><input type="text" maxlength="64" name="email"></td></tr>
+            <tr><td colspan="2" align="center"><input type="submit" value="Signup"</td></tr>
+            </form>
+        </table>
+    </body>
+</html>
