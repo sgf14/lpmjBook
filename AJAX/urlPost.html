@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- see chap 18, pg 408-->
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>AJAX Example</title>
+    </head>
+    <body>
+        <h1>Loading a webpage into a div</h1>
+        <div id="info">This sentence will be replaced</div>
+
+        <script>
+            //normally this would be in a separate scrip file- in this html file for sake of example
+            params = "url=amazon.com/gp/aw"
+            request = new ajaxRequest()
+            // calls the server file
+            request.open("POST", "urlPost.php", true)
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+            request.setRequestHeader("Content-length", params.length)
+            request.setRequestHeader("Connection", "close")
+
+            request.onreadystatechange = function () {
+                //using this. allows function to copied and reused for other applications
+                if (this.readyState == 4) {
+                    if (this.status == 200) {
+                        if (this.responseText != null) {
+                            document.getElementById('info').innerHTML = this.responseText
+                        }
+                        else alert("Ajax error: No data recieved")
+                    }
+                    else alert("Ajax error: " + this.statusText)
+                }
+            }
+
+            request.send(params)
+
+            // this is a ajax function that can be reused as a libary item.  woudl generally separate this out 
+            //into a file and call it as neccessary
+            function ajaxRequest() {
+                try {
+                    // all browsers except IE
+                    var request = new XMLHttpRequest()
+                }
+                catch (e1) {
+                    try {
+                        //IE 6+
+                        request = new ActiveXObject("Msxml2.XMLHTTP")
+                        }
+                    catch (e2) {
+                        try {
+                            //IE 5
+                            request = new ActiveXObject("Microsoft.XMLHTTP")
+                            }
+                        catch (e3) {
+                            //no ajax support in browser
+                            request = false
+                            }
+                    }
+                }
+                return request
+            }
+        </script>
+    </body>
+</html>
